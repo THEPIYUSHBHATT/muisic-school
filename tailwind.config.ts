@@ -7,7 +7,6 @@ const {
   default: flattenColorPalette,
 } = require('tailwindcss/lib/util/flattenColorPalette')
 
-// Plugin to add each Tailwind color as a global CSS variable
 function addVariablesForColors({ addBase, theme }: any) {
   const allColors = flattenColorPalette(theme('colors'))
   const newVars = Object.fromEntries(
@@ -70,15 +69,14 @@ const config: Config = {
         scroll: {
           to: {
             transform: 'translate(calc(-50% - 0.5rem))',
-
-            meteor: {
-              '0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
-              '70%': { opacity: '1' },
-              '100%': {
-                transform: 'rotate(215deg) translateX(-500px)',
-                opacity: '0',
-              },
-            },
+          },
+        },
+        meteor: {
+          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
+          '70%': { opacity: '1' },
+          '100%': {
+            transform: 'rotate(215deg) translateX(-500px)',
+            opacity: '0',
           },
         },
       },
